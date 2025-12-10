@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Tus comandos de construcción
-                sh 'mvn clean install'
+                sh 'cd mi-proyecto && mvn clean install'
             }
         }
         stage('Test') {
