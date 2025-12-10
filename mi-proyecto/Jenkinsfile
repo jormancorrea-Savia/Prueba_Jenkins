@@ -5,14 +5,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Tus comandos de construcción
+                sh 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
                 // Tus comandos de prueba
+                sh 'mvn test'
             }
         }
-        // ... otros stages
+        stage('Deploy') {
+            steps {
+                // Tus comandos de despliegue
+                echo "Simulando un despliegue en un servidor de aplicaciones"
+            }
+        }
     }
     
     // AQUÍ ES DONDE DEBE IR EL POST GLOBAL
