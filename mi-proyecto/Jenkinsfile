@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Tus comandos de prueba
-                sh 'cd mi-proyecto & mvn test'
+                sh 'cd mi-proyecto && mvn test'
             }
         }
         stage('Deploy') {
