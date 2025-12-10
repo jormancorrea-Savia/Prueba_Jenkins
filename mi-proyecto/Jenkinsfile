@@ -1,35 +1,30 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Build'){
-            steps{
-                sh 'mvn clean install'
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Tus comandos de construcción
             }
         }
-        stage('Test'){
-            steps{
-                sh 'mvn test'               
+        stage('Test') {
+            steps {
+                // Tus comandos de prueba
             }
         }
-
-        stage('Deploy'){
-            steps{
-                echo 'Simulando un despliegue a un servidor de aplicaciones...'
-            }
+        // ... otros stages
+    }
+    
+    // AQUÍ ES DONDE DEBE IR EL POST GLOBAL
+    post {
+        always {
+            echo 'Pipeline terminado.'
         }
-        post{
-            always{
-                echo 'Siempre se ejecuta'
-            }
-            success{
-                echo 'Exito este bloque se ejecuta si todo el Pipeline se ejecuta correctamente.'
-            }
-            failure{
-                echo 'Este bloque se ejecuta si alguna etapa del Pipeline falla.'
-            }
+        success {
+            echo '¡El Pipeline fue exitoso!'
+        }
+        failure {
+            echo '¡El Pipeline falló!'
         }
     }
-
-
-    
 }
